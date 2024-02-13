@@ -1,0 +1,81 @@
+body {
+    font-family:"Helvetica Neue";
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+}
+header {
+    background-color: #2fa4e7;
+    color: #ffffff;
+    padding: 10px 20px;
+}
+ a {
+    font-family:"Helvetica Neue";
+    display: inline-block;
+    margin: 0 10px;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #2fa4e7;
+    background-color: #ffffff;
+    border-radius: 5px;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+h1 {
+    text-align: center; /* Căn giữa tiêu đề */
+    margin-top: 20px; /* Tạo khoảng cách phía trên */
+}
+.logo {
+    max-width: 350px; 
+  }
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.title {
+    position: relative; /* Thiết lập phần tử trong môi trường chứa */
+    right: 110px; /* Điều chỉnh khoảng cách theo chiều ngang. Thay đổi giá trị này để di chuyển phần tử theo ý muốn */
+    /* Hoặc bạn cũng có thể sử dụng right: 50px; để di chuyển sang bên phải */
+}
+form {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+form label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+form input[type="text"],
+form textarea {
+    width: calc(100% - 22px);
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+form textarea {
+    height: 100px;
+}
+
+form button[type="submit"] {
+    background-color: #2fa4e7;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form button[type="submit"]:hover {
+    background-color: #1b7bbd;
+}

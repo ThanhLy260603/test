@@ -1,0 +1,46 @@
+/* login.css */
+
+body {
+    background: url('../images/hinh1.jpg') center/cover no-repeat fixed;
+    font-family:"inherit";
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .container {
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 400px;
+  }
+  
+  h2 {
+    font-family:"Segoe UI Historic, Segoe UI";
+    color: #007bff;
+    text-align: center;
+  }
+  
+  label {
+    color: #555;
+    font-weight: bold;
+  }
+  
+  .form-control {
+    margin-bottom: 15px;
+  }
+  
+  .btn-primary {
+    background-color: #ffffff;
+    color: #0011ff;
+    border: none;
+  }
+  
+  .btn-primary:hover {
+    background-color: #0056b3;
+  }
+  

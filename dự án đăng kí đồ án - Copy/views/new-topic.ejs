@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/new-topic.css">
+    <title>Thêm Đề Tài</title>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <img src="../images/hinhbanner.png" alt="Logo" class="logo">
+            <h1 class="title">Thêm Đề Tài</h1>
+            <a href="/topics">Quay Lại</a>
+        </div>
+    </header>
+    <form action="/topics" method="POST">
+        <!-- Các trường thông tin cho đề tài mới -->
+        <label for="teacher">Teacher:</label>
+        <input type="text" id="teacher" name="teacher" required>
+
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title" required>
+
+        <label for="note">Note:</label>
+        <textarea id="note" name="note"></textarea>
+
+        <label for="students">Students:</label>
+        <input type="text" id="students" name="students" placeholder="Enter student names separated by commas">
+
+        <!-- Nút submit để thêm đề tài mới -->
+        <button type="submit">Add Topic</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản Lý Đề Tài</title>
+    <link rel="stylesheet" href="/css/topic.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <img src="../images/hinhbanner.png" alt="Logo" class="logo">
+            <h1 class="title">Quản Lý Đề Tài</h1>
+            <div class="buttons">
+                <a href="/topics/new">Thêm Đề Tài</a>
+                <a href="/">Đăng Xuất</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Search...">
+        <button onclick="searchTopics()">Tìm Kiếm</button>
+    </div>
+   
+    <% if (topics && topics.length > 0) { %>
+        <table>
+            <thead>
+                <tr>
+                    <th>Giáo Viên Hướng Dẫn</th>
+                    <th>Đề Tài</th>
+                    <th>Chú Ý</th>
+                    <th>Thông tin sinh viên</th>
+                    <th>Hoạt động</th>
+                </tr>
+            </thead>
+            <tbody id="topicTableBody">
+                <% topics.forEach(topic => { %>
+                    <tr>
+                        <td><%= topic.teacher %></td>
+                        <td><%= topic.title %></td>
+                        <td><%= topic.note %></td>
+                        <td>
+                            <% if (topic.students && topic.students.length > 0) { %>
+                                <ul>
+                                    <% topic.students.forEach(student => { %>
+                                        <li><%= student %></li>
+                                    <% }); %>
+                                </ul>
+                            <% } else { %>
+                                <p>No students</p>
+                            <% } %>
+                        </td>
+                        <td>
+                            <a href="/topics/<%= topic._id %>/edit" class="edit">Sửa</a>
+                            <form action="/topics/<%= topic._id %>/delete" method="POST">
+                                <button type="submit" class="delete">Xóa</button>
+                            </form>
+                        </td>
+                    </tr>
+                <% }); %>
+            </tbody>
+        </table>
+    <% } else { %>
+        <p id="Không Có Đề Tài">No topics found</p>
+    <% } %>
+
+    <script>
+        function searchTopics() {
+            const searchTerm = document.getElementById('searchInput').value.trim().toLowerCase();
+            const topicRows = document.querySelectorAll('#topicTableBody tr');
+
+            topicRows.forEach(row => {
+                const teacher = row.querySelector('td:nth-child(1)').textContent.toLowerCase();
+                const title = row.querySelector('td:nth-child(2)').textContent.toLowerCase();
+                const note = row.querySelector('td:nth-child(3)').textContent.toLowerCase();
+                const students = row.querySelector('td:nth-child(4)').textContent.toLowerCase();
+
+                if (teacher.includes(searchTerm) || title.includes(searchTerm) || note.includes(searchTerm) || students.includes(searchTerm)) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+
+            const noTopicsFound = document.getElementById('noTopicsFound');
+            if (noTopicsFound) {
+                noTopicsFound.style.display = topicRows.length > 0 ? 'none' : '';
+            }
+        }
+    </script>
+</body>
+</html>

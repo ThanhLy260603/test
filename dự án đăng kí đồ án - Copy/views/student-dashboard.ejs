@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng Kí Đề Tài</title>
+    <link rel="stylesheet" href="/css/topic.css"> <!-- Thêm link tới file CSS -->
+</head>
+<body>  
+    <header>
+    <div class="header-container">
+        <img src="../images/hinhbanner.png" alt="Logo" class="logo">
+        <h1 class="title">Đăng Kí Đề Tài</h1>
+        <div class="buttons">
+            <a href="/">Đăng Xuất</a>
+        </div>
+    </div>
+</header>
+<div class="search-container">
+    <input type="text" id="searchInput" placeholder="Search...">
+    <button onclick="searchTopics()">Tìm Kiếm</button>
+</div>
+    <table>
+        <thead>
+            <tr>
+                <th>Giáo Viên Hướng Dẫn</th>
+                <th>Đề Tài</th>
+                <th>Chú Ý</th>
+                <th>Thông tin sinh viên</th>
+                <th>Hoạt động</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% topics.forEach(topic => { %>
+                <tr>
+                    <td><%= topic.teacher %></td>
+                    <td><%= topic.title %></td>
+                    <td><%= topic.note %></td>
+                    <td>
+                        <% if (topic.students && topic.students.length > 0) { %>
+                            <% topic.students.forEach(student => { %>
+                                <%= student %><br> <!-- Hiển thị thông tin sinh viên dưới dạng danh sách -->
+                            <% }); %>
+                        <% } else { %>
+                            Trống <!-- Hiển thị "Trống" nếu không có thông tin sinh viên -->
+                        <% } %>
+                    </td>
+                    <td>
+                        <form action="/student-dashboard/<%= topic._id %>/register" method="post">
+                            <input type="text" name="studentName" placeholder="Your Name"> <!-- Ô nhập thông tin -->
+                            <button type="submit">Đăng kí</button> <!-- Nút đăng ký -->
+                        </form>
+                    </td>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+    <script>
+        function searchTopics() {
+            const searchTerm = document.getElementById('searchInput').value.trim().toLowerCase();
+            const topicRows = document.querySelectorAll('tbody tr'); // Lấy tất cả các hàng trong tbody
+    
+            topicRows.forEach(row => {
+                const teacher = row.querySelector('td:nth-child(1)').textContent.toLowerCase();
+                const title = row.querySelector('td:nth-child(2)').textContent.toLowerCase();
+                const note = row.querySelector('td:nth-child(3)').textContent.toLowerCase();
+                const students = row.querySelector('td:nth-child(4)').textContent.toLowerCase();
+    
+                // Kiểm tra xem từ khóa tìm kiếm có xuất hiện trong bất kỳ cột nào không
+                if (teacher.includes(searchTerm) || title.includes(searchTerm) || note.includes(searchTerm) || students.includes(searchTerm)) {
+                    row.style.display = ''; // Hiển thị hàng nếu có kết quả tìm kiếm
+                } else {
+                    row.style.display = 'none'; // Ẩn hàng nếu không có kết quả tìm kiếm
+                }
+            });
+        }
+    </script>
+    
+   
+</body>
+</html>

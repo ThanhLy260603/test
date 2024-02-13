@@ -1,0 +1,122 @@
+body {
+    font-family:"Helvetica Neue";
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+}
+
+header {
+    background-color: #2fa4e7;
+    color: #ffffff;
+    padding: 10px 20px;
+}
+.logo {
+    max-width: 350px; 
+  }
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.title {
+    position: relative; /* Thiết lập phần tử trong môi trường chứa */
+    right: 90px; /* Điều chỉnh khoảng cách theo chiều ngang. Thay đổi giá trị này để di chuyển phần tử theo ý muốn */
+    /* Hoặc bạn cũng có thể sử dụng right: 50px; để di chuyển sang bên phải */
+}
+.search-container {
+    margin: 20px auto; /* Sử dụng margin tự động ở cả hai bên và margin-bottom */
+    margin-left: auto; /* Đẩy phần tìm kiếm sang bên phải */
+    text-align: right; /* Căn chỉnh nội dung sang bên phải */
+ 
+}
+
+.search-container input[type="text"], .search-container button {
+    font-family:"Helvetica Neue";
+    padding: 5px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.search-container button {
+    background-color:#343a40;
+    color:#ffffff;
+    border: none;
+    cursor: pointer;
+}
+
+.buttons {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.buttons a {
+    font-family:"Helvetica Neue";
+    display: inline-block;
+    margin: 0 10px;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #2fa4e7;
+    background-color: #ffffff;
+    border-radius: 5px;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.buttons a:hover {
+    background-color:#343a40;
+    border-color: #f5f6f7;
+}
+
+table {
+    font-family:"Helvetica Neue";
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #ffffff;
+}
+
+table th, table td {
+    font-family:"Helvetica Neue";
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+table th {
+    background-color:#2fa4e7;
+    color: #ffffff;
+}
+
+table tbody tr:nth-child(even) {
+    font-family:"Helvetica Neue";
+    background-color: #f2f2f2;
+}
+.edit {
+    background-color: #343a40;
+    border-color: #ffffff;
+}
+
+.delete {
+    background-color: #343a40;
+    border-color: #ffffff;
+}
+
+.edit, .delete {
+    font-family:"Helvetica Neue";
+    display: inline-block;
+    margin-right: 5px;
+    padding: 5px 10px;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    color: #ffffff;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.edit:hover, .delete:hover {
+    background-color: transparent;
+    color: #000;
+    border-color: #000;
+}
